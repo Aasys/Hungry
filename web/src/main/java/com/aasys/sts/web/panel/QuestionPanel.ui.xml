@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui" >
+    <ui:style>
+
+        .label{
+            margin-left: 5%;
+            margin-top: 5%
+        }
+        header, main, footer {
+            padding-left: 300px;
+        }
+    </ui:style>
+
+        <m:MaterialCard type="basic" title="Card Title" description="Here is some more information about this product that is only revealed once clicked on."  >
+            <m:link><m:MaterialLink text="Share" icon="mdi-social-share"  /></m:link>
+            <m:link><m:MaterialLink text="Download" icon="mdi-file-file-download"  /></m:link>
+        </m:MaterialCard>
+
+
+</ui:UiBinder>
