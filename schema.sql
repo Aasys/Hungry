@@ -14,7 +14,7 @@ create table Users (
   name varchar(128) not null,
   address varchar(128),
   phonenum varchar(16),
-  email varchar(128) not null,
+  email varchar(128) not null unique,
   passwd varchar(16) not null
 );
 
