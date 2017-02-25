@@ -3,24 +3,33 @@ package com.aasys.sts.server.postgres;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 /**
  * Created by aasys on 2/25/2017.
  */
 public class PostgreSQLJDBC {
 
-    private static String DB_USER = "as3828";
-    private static String DB_PASSWORD = "ohwpdhbc";
-    private static String DB_SID = "as3828_cs500";
-    private static String DB_HOST = "twilbury.cs.drexel.edu";
-    private static int PORT = -1;
+    private static String DB_CONFIG_BUNDLE = "com.aasys.sts.dbconfig";
+    private static String DB_USER = "dbUser";
+    private static String DB_PASSWORD = "dbPass";
+    private static String DB_SID = "dbSID";
+    private static String DB_HOST = "dbHost";
+    private static String DB_PORT = "dbPort";
 
     private static Connection _connection = null;
 
     public static Connection getConnection()  throws SQLException,
             ClassNotFoundException{
+
+        ResourceBundle dbconfig = ResourceBundle.getBundle(DB_CONFIG_BUNDLE);
+
         if (_connection == null)
-            _connection = openDBConnection(DB_USER, DB_PASSWORD, DB_SID, DB_HOST, PORT);
+            _connection = openDBConnection(dbconfig.getString(DB_USER),
+                                           dbconfig.getString(DB_PASSWORD),
+                                           dbconfig.getString(DB_SID),
+                                           dbconfig.getString(DB_HOST),
+                                           Integer.parseInt(dbconfig.getString(DB_PORT)));
         return _connection;
     }
     private static Connection openDBConnection(String user, String pass,
