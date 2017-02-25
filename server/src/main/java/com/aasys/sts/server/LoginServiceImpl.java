@@ -1,5 +1,6 @@
 package com.aasys.sts.server;
 
+import com.aasys.sts.server.postgres.PostgreSQLJDBC;
 import com.aasys.sts.shared.LoginUser;
 import com.aasys.sts.shared.User;
 import com.aasys.sts.web.LoginService;
@@ -14,12 +15,13 @@ import java.util.Map;
  */
 @SuppressWarnings("serial")
 public class LoginServiceImpl extends RemoteServiceServlet implements LoginService {
+
     //TODO; robust this and storage of username password
     @Override
     public User loginServer(LoginUser loginUser) throws Exception {
         String userFullName = USER_MAP.get(loginUser.getEmail());
         if (userFullName != null) {
-            if (loginUser.getPassword().equals("password")) {
+            if (PostgreSQLJDBC.getConnection() != null) {
                 User user = new User(loginUser.getEmail());
                 user.setFullName(userFullName);
                 return user;
