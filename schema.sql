@@ -160,21 +160,21 @@ insert into Restaurants (rid, name, address,phonenumber) values (14,'Indie Blue'
 insert into Restaurants (rid, name, address,phonenumber) values (15,'City Tavern','138 S 2nd St, Philadelphia, PA 19106','2154131443');
 
 --Menu Data--
-insert into Menus (menuid, name, description, price,rid) values (1,'Handschumacher Dining Center','Cheese Toast Eggs',10,1);
-insert into Menus (menuid, name, description, price,rid) values (2,'Chipotle','Steak Bowl',6,2);
-insert into Menus (menuid, name, description, price,rid) values (3,'Jerrys Kitchen','BLT Sandwich',5,3);
-insert into Menus (menuid, name, description, price,rid) values (4,'Shake Shack','Vanilla Shake ',2,4);
-insert into Menus (menuid, name, description, price,rid) values (5,'Baby Blues BBQ','BBQ Ribs',8,5);
-insert into Menus (menuid, name, description, price,rid) values (6,'Herban Quality Eats','Salads',10,6);
-insert into Menus (menuid, name, description, price,rid) values (7,'Chick-fil-A','Chicken Fingers',3,7);
-insert into Menus (menuid, name, description, price,rid) values (8,'Nam Phuong Restaurant','Fried Rice',4,8);
+insert into Menus (menuid, name, description, price,rid) values (1,'Breakfast','Cheese Toast Eggs',10,1);
+insert into Menus (menuid, name, description, price,rid) values (2,'Bowl','Steak Bowl',6,2);
+insert into Menus (menuid, name, description, price,rid) values (3,'BLT','BLT Sandwich',5,3);
+insert into Menus (menuid, name, description, price,rid) values (4,'Shake','Vanilla Shake ',2,4);
+insert into Menus (menuid, name, description, price,rid) values (5,'Ribs','BBQ Ribs',8,5);
+insert into Menus (menuid, name, description, price,rid) values (6,'Healthy Salad','Salads',10,6);
+insert into Menus (menuid, name, description, price,rid) values (7,'Handy Chicken','Chicken Fingers',3,7);
+insert into Menus (menuid, name, description, price,rid) values (8,'Fried RIce','Fried Rice',4,8);
 insert into Menus (menuid, name, description, price,rid) values (9,'Sang Kee Noodle House','Ramen Bowl',7,9);
-insert into Menus (menuid, name, description, price,rid) values (10,'Pizza Hut','Cheese Pizza',10,10);
-insert into Menus (menuid, name, description, price,rid) values (11,'McDonalds','Big Mac',6,11);
-insert into Menus (menuid, name, description, price,rid) values (12,'Ralphs Italian','Pasta',6,12);
-insert into Menus (menuid, name, description, price,rid) values (13,'Bistrot La Minette','French Bread',6,13);
-insert into Menus (menuid, name, description, price,rid) values (14,'Indeblue','Samosa Rolls',6,14);
-insert into Menus (menuid, name, description, price,rid) values (15,'City Tavern','Hamburger',6,15);
+insert into Menus (menuid, name, description, price,rid) values (10,'Pizza','Cheese Pizza',10,10);
+insert into Menus (menuid, name, description, price,rid) values (11,'Value Menu','Big Mac',6,11);
+insert into Menus (menuid, name, description, price,rid) values (12,'Pasta','Spaghetti with Meathballs',6,12);
+insert into Menus (menuid, name, description, price,rid) values (13,'Bread','Garlic Bread',6,13);
+insert into Menus (menuid, name, description, price,rid) values (14,'Rolls','Samosa Rolls',6,14);
+insert into Menus (menuid, name, description, price,rid) values (15,'Burger','Hamburger with Fries',6,15);
 
 
 --Ratings Data--
