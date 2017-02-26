@@ -12,7 +12,7 @@
 			vertical-align: middle;
 		}
 		.panel{
-			background: url("http://o.aolcdn.com/hss/storage/adam/7644f342fe9ff3ebdb1f507e642fde78/SPSoT_blog01-17.jpg");
+			background: url("http://bucketreviews.com/wp-content/uploads/2011/06/2009_cloudy_with_a_chance_of_meatballs_001.jpg");
 			background-size: 100%;
 			padding: 0px !important;
 			padding-top: 40% !important;
@@ -34,10 +34,10 @@
 	<m:MaterialRow addStyleNames="{style.valign}">
 		
 		<m:MaterialColumn grid="s12 m4 l4" offset="l4">
-				<m:MaterialTitle title="Login" description="Please provide your account credentials."/>
+				<m:MaterialTitle title="Hungry Login" description="Please provide your account credentials."/>
 				<m:MaterialPanel padding="5" shadow="1" addStyleNames="{style.panel}">
 					<m:MaterialPanel addStyleNames="{style.fieldPanel}">
-						<m:MaterialImage url="http://1.images.comedycentral.com/images/show_images/TVE_Hub_ShowImage_SouthPark.jpg" type="circle" addStyleNames="{style.imgProfile} z-depth-1"/>
+						<m:MaterialImage url="https://s-media-cache-ak0.pinimg.com/564x/67/26/55/672655712dc9a674b31f585d26473c4e.jpg" type="circle" addStyleNames="{style.imgProfile} z-depth-1"/>
 						<m:MaterialTextBox ui:field="UI_txtEmail" type="email" placeholder="Email"/>
 						<m:MaterialTextBox ui:field="UI_txtPassword" type="password" placeholder="Password" />
 						<m:MaterialButton ui:field="UI_btnLogin" waves="light" text="Log In" width="100%" color="teal"/>

@@ -1,7 +1,7 @@
 package com.aasys.sts.web;
 
 import com.aasys.sts.shared.LoginUser;
-import com.aasys.sts.shared.User;
+import com.aasys.sts.shared.core.User;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**

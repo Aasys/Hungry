@@ -1,8 +1,7 @@
 package com.aasys.sts.web.panel;
 
 import com.aasys.sts.shared.LoginUser;
-import com.aasys.sts.shared.User;
-import com.aasys.sts.shared.core.Question;
+import com.aasys.sts.shared.core.User;
 import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.LoginService;
 import com.aasys.sts.web.LoginServiceAsync;
@@ -17,10 +16,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.client.ui.MaterialColumn;
-import gwt.material.design.client.ui.MaterialContainer;
 import gwt.material.design.client.ui.MaterialLabel;
-import gwt.material.design.client.ui.MaterialRow;
 import gwt.material.design.client.ui.MaterialTextBox;
 import gwt.material.design.client.ui.MaterialToast;
 
@@ -45,7 +41,7 @@ public class MaterialLogin extends Composite {
     MaterialLabel UI_lblError;
 
     @UiHandler("UI_btnLogin")
-    void onLogin(ClickEvent e){
+    void onLogin(ClickEvent e) {
         if (!prevalidate())
             return;
         LoginUser loginUser = new LoginUser(UI_txtEmail.getText(), UI_txtPassword.getText());
@@ -75,10 +71,12 @@ public class MaterialLogin extends Composite {
     }
 
     // my panel is not initially visible
-    @Override public void onAttach() {
+    @Override
+    public void onAttach() {
         super.onAttach();
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-            @Override public void execute() {
+            @Override
+            public void execute() {
                 onResize(null);
             }
         });
@@ -97,7 +95,6 @@ public class MaterialLogin extends Composite {
         }
         return true;
     }
-
 
 
 }

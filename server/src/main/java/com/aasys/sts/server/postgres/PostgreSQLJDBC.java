@@ -32,6 +32,7 @@ public class PostgreSQLJDBC {
                                            Integer.parseInt(dbconfig.getString(DB_PORT)));
         return _connection;
     }
+
     private static Connection openDBConnection(String user, String pass,
                                               String dbSID, String host, int port) throws SQLException,
             ClassNotFoundException {

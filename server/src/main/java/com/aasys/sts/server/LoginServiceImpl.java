@@ -2,13 +2,13 @@ package com.aasys.sts.server;
 
 import com.aasys.sts.server.postgres.PostgreSQLJDBC;
 import com.aasys.sts.shared.LoginUser;
-import com.aasys.sts.shared.User;
+import com.aasys.sts.shared.core.User;
 import com.aasys.sts.web.LoginService;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-import java.security.InvalidKeyException;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * Created by aasys on 10/27/15.
@@ -19,20 +19,26 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
     //TODO; robust this and storage of username password
     @Override
     public User loginServer(LoginUser loginUser) throws Exception {
-        String userFullName = USER_MAP.get(loginUser.getEmail());
-        if (userFullName != null) {
-            if (PostgreSQLJDBC.getConnection() != null) {
-                User user = new User(loginUser.getEmail());
-                user.setFullName(userFullName);
-                return user;
-            }
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE email='" +
+                loginUser.getEmail() +
+                "' AND passwd='" +
+                loginUser.getPassword() + "'; ");
+
+        if (rs.next()) {
+            com.aasys.sts.shared.core.User user = new com.aasys.sts.shared.core.User();
+
+            user.setUserId(rs.getInt("userid"));
+            user.setName(rs.getString("name"));
+            user.setAddress(rs.getString("address"));
+            user.setPhonenum(rs.getString("phonenum"));
+            user.setEmail(rs.getString("email"));
+            //user.setPassword(rs.getNString("passwd"));
+            return user;
+
         }
         throw new IllegalArgumentException("Invalid email/password!");
     }
 
-
-    private static Map<String, String> USER_MAP = new HashMap<>();
-    static {
-        USER_MAP.put("mail@aasys.co", "Aasys Sresta");
-    }
 }
