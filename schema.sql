@@ -179,20 +179,20 @@ insert into Menus (menuid, name, description, price,rid) values (15,'Burger','Ha
 
 --Ratings Data--
 insert into Ratings (raid, stars, comments,comdate,userid,rid) values (1,3,'OK Food','17-Feb-2017',1,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (2,5,'Great Burrito','17-Feb-2017',2,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (3,4,'Selection of Deli Food','17-Feb-2017',3,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (4,3,'Overall Ok Shakes','17-Feb-2017',4,1);
+insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (2,5,'Great Burrito','17-Feb-2017',1,5);
+insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (3,4,'Selection of Deli Food','17-Feb-2017',3,3);
+insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (4,3,'Overall Ok Shakes','17-Feb-2017',4,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (5,5,'Greate BBQ Selection ','17-Feb-2017',6,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (6,5,'Quality Food','17-Feb-2017',5,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Average CHicken ','17-Feb-2017',7,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (8,4,'Overall Not Bad','17-Feb-2017',8,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (9,3,'Noodles Are Average','17-Feb-2017',6,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (10,2,'Fair Pizza','17-Feb-2017',7,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (11,1,'Fast Food','17-Feb-2017',2,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (12,3,'Overall OK Italian Food','17-Feb-2017',3,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (13,4,'Great French Food','17-Feb-2017',4,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (14,5,'Best Indian Food','17-Feb-2017',7,1);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (15,4,'Above Average Hamburger','17-Feb-2017',2,1);
+insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (6,5,'Quality Food','17-Feb-2017',5,4);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Average CHicken ','17-Feb-2017',7,4);
+insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (8,4,'Overall Not Bad','17-Feb-2017',8,3);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (9,3,'Noodles Are Average','17-Feb-2017',6,3);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (10,2,'Fair Pizza','17-Feb-2017',7,2);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (11,1,'Fast Food','17-Feb-2017',2,2);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (12,3,'Overall OK Italian Food','17-Feb-2017',3,2);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (13,4,'Great French Food','17-Feb-2017',4,4);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (14,5,'Best Indian Food','17-Feb-2017',7,2);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (15,4,'Above Average Hamburger','17-Feb-2017',2,4);
 
 
 --Invoices Data--
