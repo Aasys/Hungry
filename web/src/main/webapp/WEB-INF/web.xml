@@ -23,6 +23,8 @@
     <servlet>
         <servlet-name>com.aasys.sts.parent RestaurantsService</servlet-name>
         <servlet-class>com.aasys.sts.server.ResturantsServiceImpl</servlet-class>
+        <servlet-name>com.aasys.sts.parent PastOrdersService</servlet-name>
+        <servlet-class>com.aasys.sts.server.PastOrdersImpl</servlet-class>
     </servlet>
 
     <servlet-mapping>

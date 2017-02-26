@@ -38,6 +38,7 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
             "OR restaurants.address LIKE '%$1%' " +
             "ORDER BY name ASC;";
 
+
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();
@@ -46,7 +47,6 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
 
         return parseResult(rs);
     }
-
     @Override
     public List<RestaurantInfo> getRestaurants(String likeQuery) throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();

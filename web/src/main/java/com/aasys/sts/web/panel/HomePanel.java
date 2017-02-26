@@ -58,7 +58,7 @@ public class HomePanel extends Composite {
         lnkPast.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent clickEvent) {
-
+                System.out.println("something");
             }
         });
 
