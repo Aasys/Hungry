@@ -44,5 +44,15 @@ public class RestaurantInfoPanel extends Composite {
                 );
             }
         });
+
+        txtStars.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent clickEvent) {
+                SessionCache.setToCanvas(
+                        new RatingsPanel(restaurantInfo),
+                        "Ratings - " + restaurantInfo.getRestaurant().getName()
+                );
+            }
+        });
     }
 }

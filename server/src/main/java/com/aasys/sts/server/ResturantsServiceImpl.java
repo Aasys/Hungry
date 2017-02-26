@@ -5,6 +5,7 @@ import com.aasys.sts.server.postgres.PostgreSQLJDBC;
 import com.aasys.sts.shared.core.Cuisines;
 import com.aasys.sts.shared.core.Restaurants;
 import com.aasys.sts.shared.core.Tastes;
+import com.aasys.sts.shared.query.RatingsInfo;
 import com.aasys.sts.shared.query.RestaurantInfo;
 import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.RestaurantsService;
@@ -68,6 +69,14 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
             "WHERE menustaste.flavor = '$1' " +
             "ORDER BY restaurants.name ASC;";
 
+    public static final String  RES_RATINGS_QUERY = "SELECT stars, comments, comdate, users.name " +
+            "FROM ratings " +
+            "INNER JOIN restaurants " +
+            "ON ratings.rid = restaurants.rid " +
+            "INNER JOIN users " +
+            "ON ratings.userid = users.userid " +
+            "WHERE restaurants.rid = $1 ORDER BY DECIMAL DESC ;";
+
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();
@@ -105,6 +114,29 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
         ResultSet rs = statement.executeQuery(RESTURANTS_TASTE_QUERY.replace("$1", t.getFlavor()));
 
         return parseResult(rs);
+    }
+
+    @Override
+    public List<RatingsInfo> getRatings(Restaurants restaurant) throws Exception {
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(RES_RATINGS_QUERY.replace("$1", String.valueOf(restaurant.getrId())));
+        List<RatingsInfo> ratings = new LinkedList<>();
+
+
+        while (rs.next()) {
+            RatingsInfo r = new RatingsInfo();
+
+            r.setStars(rs.getInt(DbColumns.RATINGS_STARS));
+            r.setComment(rs.getString(DbColumns.RATINGS_COMMENTS));
+            r.setComdate(rs.getDate(DbColumns.RATINGS_COMDATE));
+            r.setUserName(rs.getString(DbColumns.USERS_NAME));
+
+            ratings.add(r);
+        }
+
+        rs.close();
+        return ratings;
     }
 
     private List<RestaurantInfo> parseResult(ResultSet rs) throws Exception {
