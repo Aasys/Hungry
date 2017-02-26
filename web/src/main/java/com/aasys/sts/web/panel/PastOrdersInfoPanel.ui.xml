@@ -16,6 +16,8 @@
     <m:MaterialCard type="basic" ui:field="resCard"  >
 
         <m:link><m:MaterialLink ui:field="txtOrder" text="Order" /></m:link>
+        <m:link><m:MaterialLink ui:field="txtDate" text="Date" /></m:link>
+        <m:link><m:MaterialLink ui:field="txtAmount" text="Amount" /></m:link>
         <m:link><m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" /></m:link>
     </m:MaterialCard>
 

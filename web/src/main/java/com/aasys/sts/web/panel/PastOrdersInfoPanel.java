@@ -23,6 +23,10 @@ public class PastOrdersInfoPanel extends Composite {
     @UiField
     MaterialLink txtOrder;
     @UiField
+    MaterialLink txtAmount;
+    @UiField
+    MaterialLink txtDate;
+    @UiField
     MaterialLink txtStars;
 
     private final PastOrdersInfo pastOrdersInfo;
@@ -32,7 +36,11 @@ public class PastOrdersInfoPanel extends Composite {
         this.pastOrdersInfo = pastOrdersInfo;
 
         resCard.setTitle(pastOrdersInfo.getInvoices().getResname());
-        resCard.setDescription(pastOrdersInfo.getInvoices().getDescription());
+        resCard.setDescription(pastOrdersInfo.getInvoices().getDescription());// + "\nAmount = " + pastOrdersInfo.getInvoices().getAmount() +
+          //     "\nDate: " + pastOrdersInfo.getInvoices().getDate());
+        txtDate.setText(pastOrdersInfo.getInvoices().getDate());
+        txtAmount.setText(String.valueOf(pastOrdersInfo.getInvoices().getAmount()));
+
         //txtStars.setText(String.valueOf(restaurantInfo.getRatings()));
     }
 }

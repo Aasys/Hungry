@@ -27,7 +27,7 @@ public class PastOrdersImpl extends RemoteServiceServlet implements PastOrdersSe
     public List<PastOrdersInfo> getInvoices() throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();
         Statement statement = connection.createStatement();
-        System.out.println(PASTORDERS_QUERY);
+
         ResultSet rs = statement.executeQuery(PASTORDERS_QUERY);
        return parseResult(rs);
     }
@@ -40,12 +40,12 @@ public class PastOrdersImpl extends RemoteServiceServlet implements PastOrdersSe
             Invoices invoices = new Invoices();
 
             invoices.settId(rs.getInt(DbColumns.INVOICE_TID));
-            System.out.println(invoices.gettId());
+
             invoices.setDate(rs.getString(DbColumns.INVOICE_DATE));
             invoices.setDescription(rs.getString(DbColumns.INVOICE_DESCRIPTION));
             invoices.setAmount(rs.getInt(DbColumns.INVOICE_AMOUNT));
             invoices.setResname(rs.getString(DbColumns.RESTAURANTS_NAME));
-            System.out.println(invoices.getResname());
+
 
 
             pastOrdersInfo.setInvoices(invoices);
