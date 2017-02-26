@@ -10,7 +10,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.client.ui.MaterialColumn;
+import gwt.material.design.client.ui.MaterialRow;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class RatingsPanel extends Composite {
     private final RestaurantsServiceAsync restaurantsService = GWT.create(RestaurantsService.class);
 
     @UiField
-    MaterialColumn mCol;
+    MaterialRow mRow;
 
     private final RestaurantInfo restaurantInfo;
 
@@ -45,9 +45,9 @@ public class RatingsPanel extends Composite {
 
             @Override
             public void onSuccess(List<RatingsInfo> ratingsInfos) {
-                mCol.clear();
+                mRow.clear();
                 for (RatingsInfo ri : ratingsInfos) {
-                    mCol.add(new RatingsCard(ri));
+                    mRow.add(new RatingsCard(ri));
                 }
             }
         };

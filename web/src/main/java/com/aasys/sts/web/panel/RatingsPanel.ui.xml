@@ -12,6 +12,6 @@
         }
     </ui:style>
     <g:HTMLPanel styleName="{style.pad}">
-        <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
+        <m:MaterialRow ui:field="mRow"></m:MaterialRow>
     </g:HTMLPanel>
 </ui:UiBinder>
