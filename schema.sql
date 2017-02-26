@@ -196,15 +196,15 @@ insert into Ratings (raid, stars, comments,comdate,userid,rid) values (15,4,'Abo
 
 
 --Invoices Data--
-insert into Invoices (tid, invdate, decription,amount) values (1,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (2,'17-Jan-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (3,'1-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (4,'25-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (5,'17-Jan-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (6,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (7,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (8,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (9,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (10,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (11,'17-Feb-2017','Test Invoice',25);
-insert into Invoices (tid, invdate, decription,amount) values (12,'17-Feb-2017','Test Invoice',25);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (1, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 1);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (2, '2017-01-17', 'Test Invoice', 25, '51684651561', 2, 4);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (3, '2017-02-01', 'Test Invoice', 25, '54415641564', 3, 5);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (4, '2017-02-25', 'Test Invoice', 25, '51564651454', 4, 6);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (5, '2017-01-17', 'Test Invoice', 25, '51545153141', 5, 7);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (6, '2017-02-17', 'Test Invoice', 25, '35216515156', 6, 8);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (7, '2017-02-17', 'Test Invoice', 25, '21531565113', 7, 9);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (8, '2017-02-17', 'Test Invoice', 25, '45686451846', 8, 10);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (9, '2017-02-17', 'Test Invoice', 25, '45789158785', 9, 11);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (10, '2017-02-17', 'Test Invoice', 25, '75272525225', 10, 12);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (11, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 3);
+INSERT INTO public.invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (12, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 2);
