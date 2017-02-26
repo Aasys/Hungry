@@ -184,7 +184,7 @@ insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (3,4,'Sel
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (4,3,'Overall Ok Shakes','17-Feb-2017',4,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (5,5,'Greate BBQ Selection ','17-Feb-2017',6,1);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (6,5,'Quality Food','17-Feb-2017',5,4);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Average CHicken ','17-Feb-2017',7,4);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Avera------------------------------------------ge CHicken ','17-Feb-2017',7,4);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (8,4,'Overall Not Bad','17-Feb-2017',8,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid) values (9,3,'Noodles Are Average','17-Feb-2017',6,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid) values (10,2,'Fair Pizza','17-Feb-2017',7,2);

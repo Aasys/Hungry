@@ -1,5 +1,7 @@
 package com.aasys.sts.web;
 
+import com.aasys.sts.shared.core.Cuisines;
+import com.aasys.sts.shared.core.Tastes;
 import com.aasys.sts.shared.query.RestaurantInfo;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -14,4 +16,7 @@ public interface RestaurantsService extends RemoteService {
 
     List<RestaurantInfo> getRestaurants() throws Exception;
     List<RestaurantInfo> getRestaurants(String likeQuery) throws Exception;
+    List<RestaurantInfo> getRestaurants(Cuisines cuisines) throws Exception;
+
+    List<RestaurantInfo> getRestaurants(Tastes t) throws Exception;
 }
