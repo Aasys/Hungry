@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by aasys on 2/25/2017.
  */
-@RemoteServiceRelativePath("restaurants")
+@RemoteServiceRelativePath("pastorder")
 public interface PastOrdersService extends RemoteService {
 
     List<PastOrdersInfo> getInvoices() throws Exception;

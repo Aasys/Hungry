@@ -19,8 +19,12 @@ public class HomePanel extends Composite {
     }
 
     RestaurantsPanel restaurantsPanel = null;
+    PastOrdersPanel pastOrdersPanel = null;
 
     private final User _user;
+
+    @UiField
+    MaterialNavBar UI_navBar;
 
     @UiField
     MaterialTopNav UI_topNav;
@@ -51,14 +55,16 @@ public class HomePanel extends Composite {
         lnkOrder.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent clickEvent) {
-                SessionCache.setToCanvas(restaurantsPanel);
+                SessionCache.setToCanvas(restaurantsPanel, "Order");
             }
         });
 
         lnkPast.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent clickEvent) {
-                System.out.println("something");
+                if (pastOrdersPanel == null)
+                    pastOrdersPanel = new PastOrdersPanel();
+                SessionCache.setToCanvas(pastOrdersPanel, "Past Orders");
             }
         });
 
@@ -83,9 +89,10 @@ public class HomePanel extends Composite {
         UI_topNav.setProfileName(_user.getName());
         UI_lblEmail.setText(_user.getEmail());
         SessionCache.UI_canvas = UI_canvas;
+        SessionCache.UI_navBar = UI_navBar;
         if (restaurantsPanel == null)
             restaurantsPanel = new RestaurantsPanel();
-        SessionCache.setToCanvas(restaurantsPanel);
+        SessionCache.setToCanvas(restaurantsPanel, "Order");
     }
 
 }

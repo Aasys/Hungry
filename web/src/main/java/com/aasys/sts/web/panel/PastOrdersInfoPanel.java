@@ -25,9 +25,10 @@ public class PastOrdersInfoPanel extends Composite {
     @UiField
     MaterialLink txtStars;
 
-    private final Invoices pastOrdersInfo;
+    private final PastOrdersInfo pastOrdersInfo;
 
     public PastOrdersInfoPanel(PastOrdersInfo pastOrdersInfo) {
-
+        initWidget(uiBinder.createAndBindUi(this));
+        this.pastOrdersInfo = pastOrdersInfo;
     }
 }

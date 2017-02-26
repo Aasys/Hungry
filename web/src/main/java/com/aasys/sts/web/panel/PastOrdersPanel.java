@@ -22,7 +22,7 @@ import java.util.List;
  * Created by kb on 2/26/17.
  */
 public class PastOrdersPanel extends Composite {
-    private static PastOrdersPanel uiBinder = GWT.create(PastOrdersService.class);
+    private static PastOrdersPanlUiBinder uiBinder = GWT.create(PastOrdersPanlUiBinder.class);
 
     interface PastOrdersPanlUiBinder extends UiBinder<Widget, PastOrdersPanel> {
     }
