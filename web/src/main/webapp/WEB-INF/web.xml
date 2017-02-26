@@ -26,6 +26,10 @@
         <servlet-class>com.aasys.sts.server.ResturantsServiceImpl</servlet-class>
     </servlet>
 
+  <servlet>
+    <servlet-name>com.aasys.sts.shared CuisinesService</servlet-name>
+    <servlet-class>com.aasys.sts.server.CuisinesServiceImpl</servlet-class>
+  </servlet>
     <servlet>
   <servlet-name>com.aasys.sts.parent PastOrdersService</servlet-name>
   <servlet-class>com.aasys.sts.server.PastOrdersImpl</servlet-class>
@@ -45,7 +49,10 @@
     <servlet-name>com.aasys.sts.parent PastOrdersService</servlet-name>
     <url-pattern>/parent/pastorder</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>com.aasys.sts.shared CuisinesService</servlet-name>
+    <url-pattern>/parent/cuisines</url-pattern>
+  </servlet-mapping>
 
     <!-- Default page to serve -->
   <welcome-file-list>

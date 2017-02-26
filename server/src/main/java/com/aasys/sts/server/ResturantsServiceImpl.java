@@ -2,8 +2,11 @@ package com.aasys.sts.server;
 
 import com.aasys.sts.server.postgres.DbColumns;
 import com.aasys.sts.server.postgres.PostgreSQLJDBC;
+import com.aasys.sts.shared.core.Cuisines;
 import com.aasys.sts.shared.core.Restaurants;
+import com.aasys.sts.shared.core.Tastes;
 import com.aasys.sts.shared.query.RestaurantInfo;
+import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.RestaurantsService;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -39,6 +42,32 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
             "ORDER BY name ASC;";
 
 
+    private static final String RWSTAURANTS_CUISINE_QUERY = "SELECT restaurants.rid as rid, restaurants.name, address, phonenumber, avgstars " +
+            "FROM restaurants " +
+            "LEFT OUTER JOIN " +
+            "(SELECT rid, avg(stars) AS avgstars " +
+            "FROM ratings " +
+            "GROUP BY rid) AS stars " +
+            "ON stars.rid = restaurants.rid " +
+            "INNER JOIN restaurantcuisine " +
+            "ON restaurants.rid = restaurantcuisine.rid " +
+            "WHERE restaurantcuisine.name='$1' " +
+            "ORDER BY restaurants.name ASC;";
+
+    private static final String RESTURANTS_TASTE_QUERY = "SELECT restaurants.rid as rid, restaurants.name, address, phonenumber, avgstars " +
+            "FROM restaurants " +
+            "LEFT OUTER JOIN " +
+            "(SELECT rid, avg(stars) AS avgstars " +
+            "FROM ratings " +
+            "GROUP BY rid) AS stars " +
+            "ON stars.rid = restaurants.rid " +
+            "INNER JOIN menus " +
+            "ON restaurants.rid = menus.rid " +
+            "INNER JOIN menustaste " +
+            "ON menus.menuid = menustaste.menuid " +
+            "WHERE menustaste.flavor = '$1' " +
+            "ORDER BY restaurants.name ASC;";
+
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();
@@ -52,6 +81,28 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
         Connection connection = PostgreSQLJDBC.getConnection();
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(RESTAURANTS_LIKE_QUERY.replace("$1", likeQuery));
+
+        return parseResult(rs);
+    }
+
+    @Override
+    public List<RestaurantInfo> getRestaurants(Cuisines cuisines) throws Exception {
+        if (cuisines == null || StringUtil.isEmptyOrNull(cuisines.getName()))
+            return getRestaurants();
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(RWSTAURANTS_CUISINE_QUERY.replace("$1", cuisines.getName()));
+
+        return parseResult(rs);
+    }
+
+    @Override
+    public List<RestaurantInfo> getRestaurants(Tastes t) throws Exception {
+        if (t == null || StringUtil.isEmptyOrNull(t.getFlavor()))
+            return getRestaurants();
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(RESTURANTS_TASTE_QUERY.replace("$1", t.getFlavor()));
 
         return parseResult(rs);
     }

@@ -13,6 +13,22 @@
     </ui:style>
     <g:HTMLPanel styleName="{style.pad}">
         <m:MaterialTextBox ui:field="txtSearch" icon="mdi-action-search" placeholder="Search..."></m:MaterialTextBox>
+        <m:MaterialCollapsible type="accordion" styleName="teal lighten-5">
+            <m:item>
+                <m:MaterialCollapsibleItem>
+                    <m:header><m:MaterialLink text="Cuisine" textColor="black" ui:field="selectCuisine"></m:MaterialLink></m:header>
+                    <m:content><m:MaterialPanel ui:field="cuisinePanel">
+                    </m:MaterialPanel></m:content>
+                </m:MaterialCollapsibleItem>
+            </m:item>
+            <m:item>
+            <m:MaterialCollapsibleItem>
+                <m:header><m:MaterialLink text="Flavor" textColor="black" ui:field="selectTaste"></m:MaterialLink></m:header>
+                <m:content><m:MaterialPanel ui:field="tastePanel">
+                </m:MaterialPanel></m:content>
+            </m:MaterialCollapsibleItem>
+        </m:item>
+        </m:MaterialCollapsible>
         <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
     </g:HTMLPanel>
 </ui:UiBinder>

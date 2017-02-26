@@ -18,9 +18,9 @@ public class DbColumns {
     public static final String PAYMENTS_ZIPCODE = "zipcode";
     public static final String PAYMENTS_USERID = "userid";
 
-    public static final String CUISINES_NAME = "GENERIC";
+    public static final String CUISINES_NAME = "name";
 
-    public static final String TASTES_FLAVOR = "BLAND";
+    public static final String TASTES_FLAVOR = "flavor";
 
     public static final String RESTAURANTS_ID = "rid";
     public static final String RESTAURANTS_NAME = "name";
