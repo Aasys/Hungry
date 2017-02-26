@@ -30,5 +30,10 @@ public class PastOrdersInfoPanel extends Composite {
     public PastOrdersInfoPanel(PastOrdersInfo pastOrdersInfo) {
         initWidget(uiBinder.createAndBindUi(this));
         this.pastOrdersInfo = pastOrdersInfo;
+
+        resCard.setTitle(pastOrdersInfo.getInvoices().getResname());
+        resCard.setDescription(pastOrdersInfo.getInvoices().getDescription());
+        //txtStars.setText(String.valueOf(restaurantInfo.getRatings()));
     }
 }
+
