@@ -20,14 +20,22 @@
     <servlet-name>loginServlet</servlet-name>
     <servlet-class>com.aasys.sts.server.LoginServiceImpl</servlet-class>
   </servlet>
+    <servlet>
+        <servlet-name>com.aasys.sts.parent RestaurantsService</servlet-name>
+        <servlet-class>com.aasys.sts.server.ResturantsServiceImpl</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
+    <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/parent/login</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.aasys.sts.parent RestaurantsService</servlet-name>
+        <url-pattern>/parent/restaurants</url-pattern>
+    </servlet-mapping>
 
 
-  <!-- Default page to serve -->
+    <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>parent.html</welcome-file>
   </welcome-file-list>

@@ -27,7 +27,7 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
                 loginUser.getPassword() + "'; ");
 
         if (rs.next()) {
-            com.aasys.sts.shared.core.User user = new com.aasys.sts.shared.core.User();
+            User user = new User();
 
             user.setUserId(rs.getInt("userid"));
             user.setName(rs.getString("name"));
@@ -35,9 +35,11 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
             user.setPhonenum(rs.getString("phonenum"));
             user.setEmail(rs.getString("email"));
             //user.setPassword(rs.getNString("passwd"));
+            rs.close();
             return user;
 
         }
+        rs.close();
         throw new IllegalArgumentException("Invalid email/password!");
     }
 

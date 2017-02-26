@@ -8,6 +8,8 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 public class Restaurants implements IsSerializable{
     private int rId;
     private String name;
+    private String address;
+    private String phone;
 
     public int getrId() {
         return rId;
@@ -26,7 +28,19 @@ public class Restaurants implements IsSerializable{
     }
 
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

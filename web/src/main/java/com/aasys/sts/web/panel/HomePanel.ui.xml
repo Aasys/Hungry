@@ -8,7 +8,10 @@
         margin-left: 5%;
         margin-top: 5%
     }
-    header, main, footer {
+    .pad300 {
+        padding-left: 300px;
+    }
+    header, footer {
         padding-left: 300px;
     }
     </ui:style>
@@ -23,16 +26,17 @@
                     </m:child>
                 </m:MaterialTopNav>
             </m:sidebaritem>
-            <m:sidebaritem><m:MaterialLink icon="mdi-action-home" iconPosition="left" text="Home" textColor="teal"  /></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-view-carousel" iconPosition="left" text="Order" textColor="teal"  /></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-subject" iconPosition="left" text="Past Orders" textColor="teal"/></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink icon="mdi-action-home" iconPosition="left" text="Home" textColor="teal"  /></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink icon="mdi-action-home" iconPosition="left" text="Logout" textColor="teal"  /></m:sidebaritem>
        <!--     <m:sidebaritem><m:MaterialLink icon="mdi-action-picture-in-picture"  iconPosition="left" text="Display Survey" textColor="teal"/></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-receipt" iconPosition="left" text="Display Test" textColor="teal"  /></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-speaker-notes" iconPosition="left" text="Attempt Survey" textColor="teal"/></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-spellcheck" iconPosition="left" text="Attempt Test" textColor="teal"/></m:sidebaritem>-->
         </m:MaterialNavBar>
 
-        <m:MaterialContainer ui:field="UI_canvas">
+        <m:MaterialContainer ui:field="UI_canvas" styleName="{style.pad300}">
             <!--<m:MaterialLink text="Today" textColor="grey" addStyleNames="{style.label}"/>-->
             <!--<m:MaterialCollapsible type="popout">-->
                 <!--<m:item>-->
@@ -84,9 +88,9 @@
             <!--<m:item><m:MaterialButton type="floating" waves="light" color="yellow"  icon="mdi-communication-email" tooltip="Email" tooltipLocation="left"/></m:item>-->
             <!--<m:item><m:MaterialButton type="floating" waves="light" color="teal"  icon="mdi-image-palette" tooltip="Theme" tooltipLocation="left"/></m:item>-->
         <!--</m:MaterialFloatingContainer>-->
-
+<!--
         <m:MaterialFooter color="teal" copyright="© 2015 Copyright Aasys Sresta" type="fixed">
 
-        </m:MaterialFooter>
+        </m:MaterialFooter>-->
     </g:HTMLPanel>
 </ui:UiBinder> 

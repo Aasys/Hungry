@@ -6,10 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.client.ui.MaterialContainer;
-import gwt.material.design.client.ui.MaterialLink;
-import gwt.material.design.client.ui.MaterialRow;
-import gwt.material.design.client.ui.MaterialTopNav;
+import gwt.material.design.client.ui.*;
 
 public class HomePanel extends Composite {
 
@@ -18,6 +15,7 @@ public class HomePanel extends Composite {
     interface HomePanelUiBinder extends UiBinder<Widget, HomePanel> {
     }
 
+    RestaurantsPanel restaurantsPanel = null;
 
     private final User _user;
 
@@ -44,18 +42,21 @@ public class HomePanel extends Composite {
     }
 
     public void setToCanvas(Widget widget) {
+        UI_canvas.clear();
         UI_canvas.addWidget(widget);
     }
 
     private void addItems() {
-        MaterialContainer materialContainer = new MaterialContainer();
+        /*MaterialPanel materialContainer = new MaterialPanel();
         for (int i = 0; i <= 10; i++) {
             MaterialRow materialRow = new MaterialRow();
             QuestionPanel questionPanel = new QuestionPanel();
             materialRow.add(questionPanel);
             materialContainer.add(materialRow);
 
-        }
-        setToCanvas(materialContainer);
+        }*/
+        if (restaurantsPanel == null)
+            restaurantsPanel = new RestaurantsPanel();
+        setToCanvas(restaurantsPanel);
     }
 }
