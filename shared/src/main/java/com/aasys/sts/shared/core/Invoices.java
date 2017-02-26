@@ -13,6 +13,26 @@ public class Invoices implements IsSerializable {
     private String carnum;
     private int userid;
 
+    public String getResname() {
+        return resname;
+    }
+
+    public void setResname(String resname) {
+        this.resname = resname;
+    }
+
+    private String resname;
+
+    public int getRid() {
+        return rid;
+    }
+
+    public void setRid(int rid) {
+        this.rid = rid;
+    }
+
+    private int rid;
+
     public int gettId() {
         return tId;
     }

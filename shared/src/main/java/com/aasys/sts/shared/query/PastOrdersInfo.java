@@ -15,4 +15,7 @@ public class PastOrdersInfo implements IsSerializable {
         return invoice;
     }
 
+    public void setInvoices(Invoices invoice) {
+        this.invoice = invoice;
+    }
 }
