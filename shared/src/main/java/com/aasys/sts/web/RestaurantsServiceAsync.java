@@ -11,4 +11,5 @@ import java.util.List;
 public interface RestaurantsServiceAsync {
 
     void getRestaurants(AsyncCallback<List<RestaurantInfo>> callback) throws Exception;
+    void getRestaurants(String likeQuery, AsyncCallback<List<RestaurantInfo>> callback) throws Exception;
 }

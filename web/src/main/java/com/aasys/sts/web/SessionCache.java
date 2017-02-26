@@ -21,6 +21,7 @@ public class SessionCache {
     }
 
     public static void logout() {
+        RootPanel.get().clear();
         RootPanel.get().add(new MaterialLogin());
         user = null;
         UI_canvas = null;

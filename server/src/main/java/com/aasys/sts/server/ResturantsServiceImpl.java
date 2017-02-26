@@ -18,13 +18,25 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class ResturantsServiceImpl  extends RemoteServiceServlet implements RestaurantsService {
-    public static final String RESTURNATS_QUERY = "SELECT restaurants.rid as rid, name, address, phonenumber, avgstars " +
+    private static final String RESTURNATS_QUERY = "SELECT restaurants.rid as rid, name, address, phonenumber, avgstars " +
             "FROM restaurants " +
             "LEFT OUTER JOIN " +
             "(SELECT rid, avg(stars) AS avgstars " +
             "FROM ratings " +
             "GROUP BY rid) AS stars " +
-            "ON stars.rid = restaurants.rid;";
+            "ON stars.rid = restaurants.rid " +
+            "ORDER BY name ASC;";
+
+    private static final String RESTAURANTS_LIKE_QUERY = "SELECT restaurants.rid as rid, name, address, phonenumber, avgstars " +
+            "FROM restaurants " +
+            "LEFT OUTER JOIN " +
+            "(SELECT rid, avg(stars) AS avgstars " +
+            "FROM ratings " +
+            "GROUP BY rid) AS stars " +
+            "ON stars.rid = restaurants.rid " +
+            "WHERE name LIKE '%$1%' " +
+            "OR restaurants.address LIKE '%$1%' " +
+            "ORDER BY name ASC;";
 
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
@@ -32,6 +44,19 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(RESTURNATS_QUERY);
 
+        return parseResult(rs);
+    }
+
+    @Override
+    public List<RestaurantInfo> getRestaurants(String likeQuery) throws Exception {
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(RESTAURANTS_LIKE_QUERY.replace("$1", likeQuery));
+
+        return parseResult(rs);
+    }
+
+    private List<RestaurantInfo> parseResult(ResultSet rs) throws Exception {
         List<RestaurantInfo> restaurantInfos = new LinkedList<>();
 
         while (rs.next()) {

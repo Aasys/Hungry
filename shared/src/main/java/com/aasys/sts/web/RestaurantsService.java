@@ -13,4 +13,5 @@ import java.util.List;
 public interface RestaurantsService extends RemoteService {
 
     List<RestaurantInfo> getRestaurants() throws Exception;
+    List<RestaurantInfo> getRestaurants(String likeQuery) throws Exception;
 }
