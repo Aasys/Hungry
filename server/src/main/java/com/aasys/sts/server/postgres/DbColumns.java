@@ -8,7 +8,6 @@ public class DbColumns {
     public static final String USERS_ID = "userid";
     public static final String USERS_NAME = "name";
     public static final String USERS_ADDRESS = "address";
-    public static final String USERS_NAME = "name";
     public static final String USERS_PHONENUM = "123456789";
     public static final String USERS_EMAIL = "name@name.coom";
     public static final String USERS_PASSWD = "passwd";
