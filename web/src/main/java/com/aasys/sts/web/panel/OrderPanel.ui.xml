@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <ui:style>
+
+        .pad {
+            margin-left: 5%;
+            margin-top: 5%;
+            margin-right: 5%;
+            margin-bottom: 5%;
+        }
+    </ui:style>
+    <g:HTMLPanel styleName="{style.pad}">
+        <m:MaterialCollapsible type="accordion" styleName="teal lighten-5">
+            <m:item>
+                <m:MaterialCollapsibleItem>
+                    <m:header><m:MaterialLink text="Flavor" textColor="black" ui:field="selectTaste"></m:MaterialLink></m:header>
+                    <m:content><m:MaterialPanel ui:field="tastePanel">
+                    </m:MaterialPanel></m:content>
+                </m:MaterialCollapsibleItem>
+            </m:item>
+        </m:MaterialCollapsible>
+        <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -145,12 +145,12 @@ public class RestaurantsPanel extends Composite {
             tasteLoaded = true;
             tastePanel.clear();
             allRadioTaste = getRadio("All");
-            tastePanel.add(allRadio);
+            tastePanel.add(allRadioTaste);
             allRadioTaste.setChecked(true);
             allRadioTaste.addClickHandler(new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent clickEvent) {
-                    for (MaterialRadioButton r:cuisinesButton) {
+                    for (MaterialRadioButton r:tasteButton) {
                         r.setChecked(false);
                     }
                     populateTaste(null);
@@ -171,7 +171,7 @@ public class RestaurantsPanel extends Composite {
                         opt.addClickHandler(new ClickHandler() {
                             @Override
                             public void onClick(ClickEvent clickEvent) {
-                                allRadio.setChecked(false);
+                                allRadioTaste.setChecked(false);
                                 for (MaterialRadioButton r:tasteButton) {
                                     if (r != opt)
                                         r.setChecked(false);
@@ -182,8 +182,9 @@ public class RestaurantsPanel extends Composite {
                         opt.setText(t.getFlavor());
                         tastePanel.add(opt);
                         tasteButton.add(opt);
+                        tasteButton.add(opt);
                     }
-                    cuisineLoaded = true;
+                    tasteLoaded = true;
                 }
             });
         }

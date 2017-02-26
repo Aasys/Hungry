@@ -1,7 +1,10 @@
 package com.aasys.sts.web.panel;
 
 import com.aasys.sts.shared.query.RestaurantInfo;
+import com.aasys.sts.web.SessionCache;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -26,11 +29,20 @@ public class RestaurantInfoPanel extends Composite {
 
     private final RestaurantInfo restaurantInfo;
 
-    public RestaurantInfoPanel(RestaurantInfo restaurantInfo) {
-        this.restaurantInfo = restaurantInfo;
+    public RestaurantInfoPanel(RestaurantInfo _restaurantInfo) {
+        this.restaurantInfo = _restaurantInfo;
         initWidget(uiBinder.createAndBindUi(this));
         resCard.setTitle(restaurantInfo.getRestaurant().getName());
         resCard.setDescription(restaurantInfo.getRestaurant().getAddress());
         txtStars.setText(String.valueOf(restaurantInfo.getRatings()));
+        txtOrder.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent clickEvent) {
+                SessionCache.setToCanvas(
+                        new OrderPanel(restaurantInfo),
+                        "Order - " + restaurantInfo.getRestaurant().getName()
+                );
+            }
+        });
     }
 }
