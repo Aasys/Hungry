@@ -15,8 +15,8 @@
 
     <m:MaterialCard type="basic" ui:field="resCard"  >
 
-        <m:link><m:MaterialLink ui:field="txtOrder" text="Order" icon="mdi-social-share"  /></m:link>
-        <m:link><m:MaterialLink ui:field="txtStars" icon="mdi-file-file-download" /></m:link>
+        <m:link><m:MaterialLink ui:field="txtOrder" text="Order" /></m:link>
+        <m:link><m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" /></m:link>
     </m:MaterialCard>
 
 

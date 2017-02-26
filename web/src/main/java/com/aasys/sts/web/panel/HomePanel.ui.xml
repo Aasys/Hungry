@@ -26,10 +26,10 @@
                     </m:child>
                 </m:MaterialTopNav>
             </m:sidebaritem>
-            <m:sidebaritem><m:MaterialLink icon="mdi-action-view-carousel" iconPosition="left" text="Order" textColor="teal"  /></m:sidebaritem>
-            <m:sidebaritem><m:MaterialLink icon="mdi-action-subject" iconPosition="left" text="Past Orders" textColor="teal"/></m:sidebaritem>
-            <m:sidebaritem><m:MaterialLink icon="mdi-action-home" iconPosition="left" text="Home" textColor="teal"  /></m:sidebaritem>
-            <m:sidebaritem><m:MaterialLink icon="mdi-action-home" iconPosition="left" text="Logout" textColor="teal"  /></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink ui:field="lnkOrder" icon="mdi-action-view-carousel" iconPosition="left" text="Order" textColor="teal"  /></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink ui:field="lnkPast" icon="mdi-action-subject" iconPosition="left" text="Past Orders" textColor="teal"/></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink ui:field="lnkAccount" icon="mdi-action-home" iconPosition="left" text="Account" textColor="teal"  /></m:sidebaritem>
+            <m:sidebaritem><m:MaterialLink ui:field="lnkLogout" icon="mdi-action-home" iconPosition="left" text="Log Out" textColor="teal"  /></m:sidebaritem>
        <!--     <m:sidebaritem><m:MaterialLink icon="mdi-action-picture-in-picture"  iconPosition="left" text="Display Survey" textColor="teal"/></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-receipt" iconPosition="left" text="Display Test" textColor="teal"  /></m:sidebaritem>
             <m:sidebaritem><m:MaterialLink icon="mdi-action-speaker-notes" iconPosition="left" text="Attempt Survey" textColor="teal"/></m:sidebaritem>

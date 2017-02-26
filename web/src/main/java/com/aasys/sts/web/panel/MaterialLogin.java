@@ -5,6 +5,7 @@ import com.aasys.sts.shared.core.User;
 import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.LoginService;
 import com.aasys.sts.web.LoginServiceAsync;
+import com.aasys.sts.web.SessionCache;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -59,6 +60,7 @@ public class MaterialLogin extends Composite {
             public void onSuccess(User user) {
                 removeFromParent();
                 RootPanel.get().add(new HomePanel(user));
+                SessionCache.user = user;
             }
         });
 
