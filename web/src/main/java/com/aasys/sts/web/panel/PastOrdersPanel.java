@@ -14,10 +14,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.client.ui.MaterialCard;
-import gwt.material.design.client.ui.MaterialColumn;
-import gwt.material.design.client.ui.MaterialLabel;
-import gwt.material.design.client.ui.MaterialTextBox;
+import gwt.material.design.client.ui.*;
 
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class PastOrdersPanel extends Composite {
     MaterialTextBox txtSearch;
 
     @UiField
-    MaterialLabel Total;
+    MaterialTitle txtOrderTotal;
 
 
     public PastOrdersPanel() {
@@ -73,7 +70,7 @@ public class PastOrdersPanel extends Composite {
                     mCol.add(new PastOrdersInfoPanel(pesInfo));
                    total = total +  pesInfo.getInvoices().getAmount();
                 }
-                Total.setText(Integer.toString(total));
+                txtOrderTotal.setTitle("Total Spend : $" + Integer.toString(total));
             }
         };
 

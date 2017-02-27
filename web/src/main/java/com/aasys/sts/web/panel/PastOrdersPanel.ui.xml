@@ -16,9 +16,7 @@
     <g:HTMLPanel styleName="{style.pad}">
         <m:MaterialTextBox ui:field="txtSearch" icon="mdi-action-search" placeholder="Search..." visible = "false"></m:MaterialTextBox>
         <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
-        <m:MaterialLabel text="Order Total: " />
-        <m:MaterialLabel ui:field="Total" />
-
+        <m:MaterialTitle ui:field="txtOrderTotal"></m:MaterialTitle>
 
     </g:HTMLPanel>
 </ui:UiBinder>
