@@ -50,3 +50,14 @@ Method 2: tux - resin
      compile and inflate the war file to ~/resin
      set permission
      git the resin-url/parent from your browser
+	 
+Logging In
+---------------------------------	 
+User with most data
+email is joedrexel@drexel.net 
+password is: default
+
+another user
+jp@trek.com
+pw: default
+
