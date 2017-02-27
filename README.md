@@ -4,7 +4,7 @@ Hungry - Food Odering System
 LogIn
 --------------------------
 Application URL: 
-                http://resin.cci.drexel.edu:8080/~kwb44
+                http://resin.cci.drexel.edu:8080/~as3828
 
 
 User with most data
@@ -22,7 +22,7 @@ password is: default
 
 Code Briefing
 ------------------
-This web app used Google Web Toolkit has is backbone framework - v2.7.0
+This web app used Google Web Toolkit as the backbone framework - v2.7.0
    http://www.gwtproject.org/
 1. /server/.. contains server side code
 2. /shared/.. contains definition of objects shared between client and server
