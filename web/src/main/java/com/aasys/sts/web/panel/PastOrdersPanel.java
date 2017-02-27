@@ -71,8 +71,8 @@ public class PastOrdersPanel extends Composite {
                 for (PastOrdersInfo pesInfo : pastOrdersInfos) {
                     mCol.add(new PastOrdersInfoPanel(pesInfo));
                    total = total +  pesInfo.getInvoices().getAmount();
-                   Total.setText(Integer.toString(total));
                 }
+                Total.setText(Integer.toString(total));
             }
         };
 

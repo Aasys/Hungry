@@ -52,7 +52,7 @@ public class OrderPanel extends Composite {
 
     private List<MenuItemPanel> menuItemPanels = new LinkedList<>();
 
-    public OrderPanel(RestaurantInfo restaurantInfo) {
+    public OrderPanel(final RestaurantInfo restaurantInfo) {
         this.restaurantInfo = restaurantInfo;
         initWidget(uiBinder.createAndBindUi(this));
         populate();
@@ -73,7 +73,7 @@ public class OrderPanel extends Composite {
                 if (count == 0) {
                     MaterialToast.alert("No items in bag!!");
                 } else {
-                    MaterialToast.alert("Todo!!");
+                    MaterialModal.showModal(new CheckoutModalPanel(total, count, des, restaurantInfo.getRestaurant().getrId()), MaterialModal.TYPE.FIXED_FOOTER);
                 }
 
             }

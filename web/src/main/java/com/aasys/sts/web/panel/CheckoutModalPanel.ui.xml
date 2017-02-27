@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <ui:style>
+
+        .pad {
+            margin-left: 5%;
+            margin-top: 5%;
+            margin-right: 5%;
+            margin-bottom: 5%;
+        }
+    </ui:style>
+    <m:MaterialPanel>
+        <m:MaterialModalContent>
+            <m:MaterialTitle ui:field="modTitle"/>
+            <m:MaterialLabel text="Select payment method"/>
+            <m:MaterialLabel text="You have no cards" ui:field="noCards" visible="false"/>
+            <m:MaterialRow ui:field="paymentPanel"></m:MaterialRow>
+        </m:MaterialModalContent>
+
+        <m:MaterialModalFooter align="right">
+            <m:MaterialButton ui:field="btnCheckout" waves="green" type="flat" text="CHECKOUT"/>
+        </m:MaterialModalFooter>
+    </m:MaterialPanel>
+</ui:UiBinder>

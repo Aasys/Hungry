@@ -1,6 +1,10 @@
 package com.aasys.sts.shared.core;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
+
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by kb on 2/25/17.
  */
@@ -10,6 +14,7 @@ public class Payments implements IsSerializable {
     private int cvcnum;
     private int zipcode;
     private int userid;
+    private Date expiryDate;
 
     public String getCardnum() {
         return cardnum;
@@ -51,6 +56,13 @@ public class Payments implements IsSerializable {
         this.userid = userid;
     }
 
+    public Date getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 
 
 }

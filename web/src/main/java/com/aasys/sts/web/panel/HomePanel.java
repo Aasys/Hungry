@@ -62,9 +62,7 @@ public class HomePanel extends Composite {
         lnkPast.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent clickEvent) {
-                if (pastOrdersPanel == null)
-                    pastOrdersPanel = new PastOrdersPanel();
-                SessionCache.setToCanvas(pastOrdersPanel, "Past Orders");
+                SessionCache.setToCanvas(new PastOrdersPanel(), "Past Orders");
             }
         });
 
