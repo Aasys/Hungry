@@ -175,6 +175,17 @@ insert into Menus (menuid, name, description, price,rid) values (12,'Pasta','Spa
 insert into Menus (menuid, name, description, price,rid) values (13,'Bread','Garlic Bread',6,13);
 insert into Menus (menuid, name, description, price,rid) values (14,'Rolls','Samosa Rolls',6,14);
 insert into Menus (menuid, name, description, price,rid) values (15,'Burger','Hamburger with Fries',6,15);
+insert into Menus (menuid, name, description, price,rid) values (16,'Steak Burrito','Steak Burrito',6,2);
+insert into Menus (menuid, name, description, price,rid) values (17,'Extra Steak Bowl','Steak Bowl with Extra',6,2);
+insert into Menus (menuid, name, description, price,rid) values (18,'Wrap','Burrito Warp',6,2);
+insert into Menus (menuid, name, description, price,rid) values (19,'Salad Bowel','Salad with Veggies',5,2);
+insert into Menus (menuid, name, description, price,rid) values (20,'Bowl','Steak Bowl',7,2);
+insert into Menus (menuid, name, description, price,rid) values (21,'Chicken','Chicken Bowl',6,2);
+insert into Menus (menuid, name, description, price,rid) values (22,'Chips','Chips and Salsa',2,2);
+insert into Menus (menuid, name, description, price,rid) values (23,'Sandwich','Pork Sandwich',6,5);
+insert into Menus (menuid, name, description, price,rid) values (24,'Rolls','Handmade rolls',6,5);
+insert into Menus (menuid, name, description, price,rid) values (25,'Rice','Rice Platter',6,5);
+
 
 
 --Ratings Data--
@@ -184,7 +195,7 @@ insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (3,4,'Sel
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (4,3,'Overall Ok Shakes','17-Feb-2017',4,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (5,5,'Greate BBQ Selection ','17-Feb-2017',6,1);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (6,5,'Quality Food','17-Feb-2017',5,4);
-insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Avera------------------------------------------ge CHicken ','17-Feb-2017',7,4);
+insert into Ratings (raid, stars, comments,comdate,userid,rid) values (7,3,'Average Chicken ','17-Feb-2017',7,4);
 insert into Ratings (raid, stars, comments,comdate,userid,rid)  values (8,4,'Overall Not Bad','17-Feb-2017',8,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid) values (9,3,'Noodles Are Average','17-Feb-2017',6,3);
 insert into Ratings (raid, stars, comments,comdate,userid,rid) values (10,2,'Fair Pizza','17-Feb-2017',7,2);
@@ -196,18 +207,22 @@ insert into Ratings (raid, stars, comments,comdate,userid,rid) values (15,4,'Abo
 
 
 --Invoices Data--
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (1, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 1);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (2, '2017-01-17', 'Test Invoice', 25, '51684651561', 2, 4);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (3, '2017-02-01', 'Test Invoice', 25, '54415641564', 3, 5);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (4, '2017-02-25', 'Test Invoice', 25, '51564651454', 4, 6);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (5, '2017-01-17', 'Test Invoice', 25, '51545153141', 5, 7);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (6, '2017-02-17', 'Test Invoice', 25, '35216515156', 6, 8);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (7, '2017-02-17', 'Test Invoice', 25, '21531565113', 7, 9);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (8, '2017-02-17', 'Test Invoice', 25, '45686451846', 8, 10);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (9, '2017-02-17', 'Test Invoice', 25, '45789158785', 9, 11);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (10, '2017-02-17', 'Test Invoice', 25, '75272525225', 10, 12);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (11, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 3);
-INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (12, '2017-02-17', 'Test Invoice', 25, '12345678923', 1, 2);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (1, '2017-02-17', 'Regular Sandich and Drink', 12, '12345678923', 1, 1);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (2, '2017-01-17', 'Vanilla Shake', 15, '51684651561', 2, 4);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (3, '2017-02-01', 'BBQ Ribs', 10, '54415641564', 3, 5);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (4, '2017-02-25', 'Healthy Salad', 14, '51564651454', 4, 6);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (5, '2017-01-17', 'Chicken Fingers', 13, '51545153141', 5, 7);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (6, '2017-02-17', 'Friend Rice', 28, '35216515156', 6, 8);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (7, '2017-02-17', 'Ramen Bowl', 25, '21531565113', 7, 9);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (8, '2017-02-17', 'Cheese Pizza', 5, '45686451846', 8, 10);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (9, '2017-02-17', 'Big Mac', 7, '45789158785', 9, 11);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (10, '2017-02-17', 'Spaghetti with Meatballs', 21, '75272525225', 10, 12);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (11, '2017-02-17', 'BLT Sandwich', 25, '12345678923', 1, 3);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (12, '2017-02-17', 'Extra Steak Bowl', 14, '12345678923', 1, 2);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (13, '2017-02-17', 'Steak Burrito', 10, '12345678923', 1, 2);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (14, '2017-02-17', 'Veggie Bowl', 7, '12345678923', 1, 2);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (15, '2017-02-17', 'Chips', 8, '12345678923', 1, 2);
+INSERT INTO invoices (tid, invdate, decription, amount, cardnum, userid, rid) VALUES (16, '2017-02-17', 'Salad Bowel', 12, '12345678923', 1, 2);
 
 INSERT INTO menustaste (menuid, flavor) VALUES (1, 'Sweet');
 INSERT INTO menustaste (menuid, flavor) VALUES (1, 'Savory');
