@@ -59,6 +59,7 @@ public class MaterialLogin extends Composite {
             @Override
             public void onSuccess(User user) {
                 removeFromParent();
+                RootPanel.get().clear();
                 RootPanel.get().add(new HomePanel(user));
                 SessionCache.user = user;
             }
