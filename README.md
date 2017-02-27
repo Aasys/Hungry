@@ -4,7 +4,7 @@ Hungry - Food Odering System
 LogIn
 --------------------------
 Application URL: 
-                http://resin.cci.drexel.edu:8080/~kwb44/parent
+                http://resin.cci.drexel.edu:8080/~kwb44
 
 
 User with most data
@@ -71,9 +71,10 @@ Method 1:
 
 Method 2: tux - resin
 
-     compile and inflate the war file to ~/resin
+     compile project
+     inflate the war file to ~/resin
      set permission
-     git the resin-url/parent from your browser
+     git the resin-url from your browser
 
 
 
