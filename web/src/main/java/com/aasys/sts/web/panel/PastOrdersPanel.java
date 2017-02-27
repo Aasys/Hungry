@@ -40,8 +40,7 @@ public class PastOrdersPanel extends Composite {
 
     @UiField
     MaterialLabel Total;
-    @UiField
-    MaterialCard resCard;
+
 
     public PastOrdersPanel() {
         initWidget(uiBinder.createAndBindUi(this));
