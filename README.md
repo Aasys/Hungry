@@ -74,7 +74,7 @@ Method 2: tux - resin
      compile project
      inflate the war file to ~/resin
      set permission
-     git the resin-url from your browser
+     goto the resin-url from your browser
 
 
 
