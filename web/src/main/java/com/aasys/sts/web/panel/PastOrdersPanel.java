@@ -31,7 +31,7 @@ public class PastOrdersPanel extends Composite {
     }
 
     private final PastOrdersServiceAsync pastOrdersService = GWT.create(PastOrdersService.class);
-    private static int total;
+
     @UiField
     MaterialColumn mCol;
 
@@ -68,6 +68,7 @@ public class PastOrdersPanel extends Composite {
             @Override
             public void onSuccess(List<PastOrdersInfo> pastOrdersInfos) {
                 mCol.clear();
+                int total = 0;
                 for (PastOrdersInfo pesInfo : pastOrdersInfos) {
                     mCol.add(new PastOrdersInfoPanel(pesInfo));
                    total = total +  pesInfo.getInvoices().getAmount();
