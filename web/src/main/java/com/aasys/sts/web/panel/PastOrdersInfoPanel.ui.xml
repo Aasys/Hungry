@@ -17,16 +17,19 @@
 
         <m:link>
             <g:HTMLPanel>
+                <m:MaterialLabel text="Order Description: " />
                 <m:MaterialLabel ui:field="txtOrder" />
                 <br/>
+                <m:MaterialLabel text="Order Amount: " />
                 <m:MaterialLabel ui:field="txtAmount" />
                 <br/>
+                <m:MaterialLabel text="Order Date: " />
                 <m:MaterialLabel ui:field="txtDate" />
                 <br/>
-                <m:MaterialLabel text="Thus us tgat" />
+                <m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" />
             </g:HTMLPanel>
         </m:link>
-        <m:link><m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" /></m:link>
+
     </m:MaterialCard>
 
 

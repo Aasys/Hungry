@@ -14,7 +14,9 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import gwt.material.design.client.ui.MaterialCard;
 import gwt.material.design.client.ui.MaterialColumn;
+import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialTextBox;
 
 import java.util.List;
@@ -29,12 +31,17 @@ public class PastOrdersPanel extends Composite {
     }
 
     private final PastOrdersServiceAsync pastOrdersService = GWT.create(PastOrdersService.class);
-
+    private static int total;
     @UiField
     MaterialColumn mCol;
 
     @UiField
     MaterialTextBox txtSearch;
+
+    @UiField
+    MaterialLabel Total;
+    @UiField
+    MaterialCard resCard;
 
     public PastOrdersPanel() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -64,6 +71,8 @@ public class PastOrdersPanel extends Composite {
                 mCol.clear();
                 for (PastOrdersInfo pesInfo : pastOrdersInfos) {
                     mCol.add(new PastOrdersInfoPanel(pesInfo));
+                   total = total +  pesInfo.getInvoices().getAmount();
+                   Total.setText(Integer.toString(total));
                 }
             }
         };

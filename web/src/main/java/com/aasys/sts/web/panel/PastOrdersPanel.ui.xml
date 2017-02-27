@@ -1,7 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
-             xmlns:m="urn:import:gwt.material.design.client.ui">
+             xmlns:m="urn:import:gwt.material.design.client.ui" >
     <ui:style>
 
         .pad {
@@ -12,7 +12,27 @@
         }
     </ui:style>
     <g:HTMLPanel styleName="{style.pad}">
-        <m:MaterialTextBox ui:field="txtSearch" icon="mdi-action-search" placeholder="Search..."></m:MaterialTextBox>
+        <m:MaterialTextBox ui:field="txtSearch" icon="mdi-action-search" placeholder="Search..." visible = "false"></m:MaterialTextBox>
         <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
     </g:HTMLPanel>
+
+    <m:MaterialCard type="basic" ui:field="resCard"  >
+
+        <m:link>
+            <g:HTMLPanel>
+                <m:MaterialLabel text="Order Total: " />
+                <m:MaterialLabel ui:field="Total" />
+                <br/>
+                <m:MaterialLabel text="Order Amount: " />
+                <m:MaterialLabel ui:field="txtAmount" />
+                <br/>
+                <m:MaterialLabel text="Order Date: " />
+                <m:MaterialLabel ui:field="txtDate" />
+                <br/>
+                <m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" />
+            </g:HTMLPanel>
+        </m:link>
+
+    </m:MaterialCard>
+
 </ui:UiBinder>
