@@ -3,6 +3,7 @@ package com.aasys.sts.web;
 import com.aasys.sts.shared.core.Cuisines;
 import com.aasys.sts.shared.core.Restaurants;
 import com.aasys.sts.shared.core.Tastes;
+import com.aasys.sts.shared.query.MenuInfo;
 import com.aasys.sts.shared.query.RatingsInfo;
 import com.aasys.sts.shared.query.RestaurantInfo;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -22,4 +23,6 @@ public interface RestaurantsServiceAsync {
     void getRestaurants(Tastes t, AsyncCallback<List<RestaurantInfo>> callback) throws Exception;
 
     void getRatings(Restaurants restaurant, AsyncCallback<List<RatingsInfo>> async);
+
+    void getMenu(Restaurants restaurants, AsyncCallback<List<MenuInfo>> async);
 }
