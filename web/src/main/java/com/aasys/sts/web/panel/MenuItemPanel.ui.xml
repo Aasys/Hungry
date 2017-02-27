@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+    <ui:style>
+
+        .label {
+            margin-left: 5%;
+            margin-top: 5%
+        }
+    </ui:style>
+
+    <m:MaterialColumn grid="s6 m4">
+        <m:MaterialCard type="basic" ui:field="resCard">
+            <m:link>
+                <m:MaterialCheckBox ui:field="chkOrder" text="Add to bag"/>
+            </m:link>
+        </m:MaterialCard>
+    </m:MaterialColumn>
+
+</ui:UiBinder>

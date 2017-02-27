@@ -83,7 +83,7 @@ create table Ratings (
 create table Invoices ( 
   tid integer primary key,
   invdate date,
-  decription varchar(128),
+  decription varchar(2048),
   amount integer not null,
   cardnum varchar(16),
   userid integer,

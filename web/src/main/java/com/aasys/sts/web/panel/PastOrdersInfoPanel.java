@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialCard;
+import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialLink;
 
 /**
@@ -22,11 +23,11 @@ public class PastOrdersInfoPanel extends Composite {
     @UiField
     MaterialCard resCard;
     @UiField
-    MaterialLink txtOrder;
+    MaterialLabel txtOrder;
     @UiField
-    MaterialLink txtAmount;
+    MaterialLabel txtAmount;
     @UiField
-    MaterialLink txtDate;
+    MaterialLabel txtDate;
     @UiField
     MaterialLink txtStars;
 

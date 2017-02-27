@@ -2,6 +2,7 @@ package com.aasys.sts.web.panel;
 
 import com.aasys.sts.shared.core.Cuisines;
 import com.aasys.sts.shared.core.Tastes;
+import com.aasys.sts.shared.query.MenuInfo;
 import com.aasys.sts.shared.query.RestaurantInfo;
 import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.CuisinesService;
@@ -31,12 +32,17 @@ public class OrderPanel extends Composite {
     }
 
     private final CuisinesServiceAsync cuisinesService = GWT.create(CuisinesService.class);
+    private final RestaurantsServiceAsync restaurantsService = GWT.create(RestaurantsService.class);
 
     @UiField
-    MaterialColumn mCol;
+    MaterialRow mRow;
 
     @UiField
     MaterialPanel tastePanel;
+
+
+    @UiField
+    MaterialButton btnOrder;
 
     private final RestaurantInfo restaurantInfo;
 
@@ -44,32 +50,56 @@ public class OrderPanel extends Composite {
 
     private boolean tasteLoaded = false;
 
+    private List<MenuItemPanel> menuItemPanels = new LinkedList<>();
+
     public OrderPanel(RestaurantInfo restaurantInfo) {
         this.restaurantInfo = restaurantInfo;
         initWidget(uiBinder.createAndBindUi(this));
         populate();
+
+        btnOrder.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent clickEvent) {
+                double total = 0;
+                int count = 0;
+                String des = "";
+                for (MenuItemPanel mip:menuItemPanels) {
+                    if (mip.isAddedToBad()) {
+                        count ++;
+                        total+=mip.getMenuInfo().getMenus().getPrice();
+                        des += mip.getMenuInfo().getMenus().getName() + ";";
+                    }
+                }
+                if (count == 0) {
+                    MaterialToast.alert("No items in bag!!");
+                } else {
+                    MaterialToast.alert("Todo!!");
+                }
+
+            }
+        });
     }
 
     private void populate() {
         loadTastes();
+        restaurantsService.getMenu(restaurantInfo.getRestaurant(), new AsyncCallback<List<MenuInfo>>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(List<MenuInfo> menuInfos) {
+                for (MenuInfo mi:menuInfos) {
+                    MenuItemPanel mip = new MenuItemPanel(mi);
+                    mRow.add(mip);
+                    menuItemPanels.add(mip);
+                }
+            }
+        });
     }
 
     MaterialRadioButton allRadioTaste;
-
-    AsyncCallback<List<RestaurantInfo>> callback = new AsyncCallback<List<RestaurantInfo>>() {
-        @Override
-        public void onFailure(Throwable throwable) {
-
-        }
-
-        @Override
-        public void onSuccess(List<RestaurantInfo> restaurantInfos) {
-            mCol.clear();
-            for (RestaurantInfo resInfo : restaurantInfos) {
-                mCol.add(new RestaurantInfoPanel(resInfo));
-            }
-        }
-    };
 
 
 
@@ -123,8 +153,10 @@ public class OrderPanel extends Composite {
         }
     }
 
-    private void populateTaste(String o) {
-
+    private void populateTaste(String flavor) {
+        for (MenuItemPanel mip:menuItemPanels) {
+            mip.toggleVisiblity(flavor);
+        }
     }
 
     private MaterialRadioButton getRadio(String text) {

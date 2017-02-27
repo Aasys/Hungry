@@ -10,6 +10,10 @@
             margin-right: 5%;
             margin-bottom: 5%;
         }
+
+        .orderbtn {
+            width: 300px;
+        }
     </ui:style>
     <g:HTMLPanel styleName="{style.pad}">
         <m:MaterialCollapsible type="accordion" styleName="teal lighten-5">
@@ -21,6 +25,7 @@
                 </m:MaterialCollapsibleItem>
             </m:item>
         </m:MaterialCollapsible>
-        <m:MaterialColumn ui:field="mCol"></m:MaterialColumn>
+        <m:MaterialRow ui:field="mRow"></m:MaterialRow>
+        <m:MaterialButton text="PLACE ORDER" color="teal" ui:field="btnOrder" addStyleNames="{style.orderbtn}"></m:MaterialButton>
     </g:HTMLPanel>
 </ui:UiBinder>

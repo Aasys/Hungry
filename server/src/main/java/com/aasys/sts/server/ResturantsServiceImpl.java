@@ -3,8 +3,10 @@ package com.aasys.sts.server;
 import com.aasys.sts.server.postgres.DbColumns;
 import com.aasys.sts.server.postgres.PostgreSQLJDBC;
 import com.aasys.sts.shared.core.Cuisines;
+import com.aasys.sts.shared.core.Menus;
 import com.aasys.sts.shared.core.Restaurants;
 import com.aasys.sts.shared.core.Tastes;
+import com.aasys.sts.shared.query.MenuInfo;
 import com.aasys.sts.shared.query.RatingsInfo;
 import com.aasys.sts.shared.query.RestaurantInfo;
 import com.aasys.sts.shared.util.StringUtil;
@@ -69,13 +71,19 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
             "WHERE menustaste.flavor = '$1' " +
             "ORDER BY restaurants.name ASC;";
 
-    public static final String  RES_RATINGS_QUERY = "SELECT stars, comments, comdate, users.name " +
+    private static final String  RES_RATINGS_QUERY = "SELECT stars, comments, comdate, users.name " +
             "FROM ratings " +
             "INNER JOIN restaurants " +
             "ON ratings.rid = restaurants.rid " +
             "INNER JOIN users " +
             "ON ratings.userid = users.userid " +
             "WHERE restaurants.rid = $1 ORDER BY comdate DESC ;";
+
+    private static final String RES_MENU_QUERY = "select menus.menuid AS menuid, name, description, price, flavor FROM menus " +
+            "LEFT OUTER JOIN menustaste " +
+            "ON menus.menuid = menustaste.menuid " +
+            "WHERE rid = $1 " +
+            "ORDER BY menus.menuid ASC ;";
 
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
@@ -137,6 +145,40 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
 
         rs.close();
         return ratings;
+    }
+
+    @Override
+    public List<MenuInfo> getMenu(Restaurants restaurant) throws Exception {
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(RES_MENU_QUERY.replace("$1", String.valueOf(restaurant.getrId())));
+        List<MenuInfo> menuInfos = new LinkedList<>();
+
+        MenuInfo temp = null;
+        List<String> flavors = null;
+        while (rs.next()) {
+            int mid = rs.getInt(DbColumns.MENUS_MENUID);
+            if (temp == null || temp.getMenus().getMenuId() != mid) {
+                MenuInfo menuInfo = new MenuInfo();
+                Menus menus = new Menus();
+                menuInfo.setMenus(menus);
+                menus.setMenuId(mid);
+                menus.setName(rs.getString(DbColumns.MENUS_NAME));
+                menus.setDescription(rs.getString(DbColumns.MENUS_DESCRIPTION));
+                menus.setPrice(rs.getDouble(DbColumns.MENUS_PRICE));
+                flavors = new LinkedList<>();
+                menuInfo.setFlavors(flavors);
+                menuInfos.add(menuInfo);
+                temp = menuInfo;
+            }
+            String flavor = rs.getString(DbColumns.MENUSTASTE_FLAVOR);
+            if (!StringUtil.isEmptyOrNull(flavor))
+                flavors.add(flavor);
+
+        }
+
+        rs.close();
+        return menuInfos;
     }
 
     private List<RestaurantInfo> parseResult(ResultSet rs) throws Exception {
