@@ -28,8 +28,6 @@ public class PastOrdersInfoPanel extends Composite {
     MaterialLabel txtAmount;
     @UiField
     MaterialLabel txtDate;
-    @UiField
-    MaterialLink txtStars;
 
     private final PastOrdersInfo pastOrdersInfo;
 

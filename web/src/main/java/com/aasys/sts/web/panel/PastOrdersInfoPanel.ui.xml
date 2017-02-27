@@ -25,8 +25,6 @@
                 <br/>
                 <m:MaterialLabel text="Order Date: " />
                 <m:MaterialLabel ui:field="txtDate" />
-                <br/>
-                <m:MaterialLink ui:field="txtStars" icon="mdi-action-star-rate" iconPosition="LEFT" />
             </g:HTMLPanel>
         </m:link>
 
