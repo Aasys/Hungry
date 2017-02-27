@@ -2,6 +2,7 @@ package com.aasys.sts.web.panel;
 
 import com.aasys.sts.shared.core.Invoices;
 import com.aasys.sts.shared.query.PastOrdersInfo;
+import com.aasys.sts.web.SessionCache;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;

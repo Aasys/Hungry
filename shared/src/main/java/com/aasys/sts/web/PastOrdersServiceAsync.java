@@ -1,5 +1,6 @@
 package com.aasys.sts.web;
 
+import com.aasys.sts.shared.core.User;
 import com.aasys.sts.shared.query.PastOrdersInfo;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -10,6 +11,8 @@ import java.util.List;
  */
 public interface PastOrdersServiceAsync {
 
-    void getInvoices(AsyncCallback<List<PastOrdersInfo>> callback) throws Exception;
+
+    void getInvoices(User user, AsyncCallback<List<PastOrdersInfo>> async);
+
 
 }

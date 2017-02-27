@@ -2,6 +2,7 @@ package com.aasys.sts.server;
 
 import com.aasys.sts.server.postgres.DbColumns;
 import com.aasys.sts.server.postgres.PostgreSQLJDBC;
+import com.aasys.sts.shared.core.User;
 import com.aasys.sts.shared.query.PastOrdersInfo;
 import com.aasys.sts.web.PastOrdersService;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -17,18 +18,23 @@ import java.util.*;
 @SuppressWarnings("serial")
 public class PastOrdersImpl extends RemoteServiceServlet implements PastOrdersService {
 
-    private static final String PASTORDERS_QUERY = "SELECT invoices.tid,invoices.decription,invoices.amount,invoices.invdate, restaurants.name " +
+    private static final String PASTORDERS_QUERY_TEST = "SELECT invoices.tid,invoices.decription,invoices.amount,invoices.invdate, restaurants.name " +
             "FROM invoices " +
             "LEFT OUTER JOIN restaurants " +
             "ON invoices.rid = restaurants.rid " +
             "where invoices.userid =1;";
 
+    private static final String PASTORDERS_QUERY = "SELECT invoices.tid,invoices.decription,invoices.amount,invoices.invdate, restaurants.name " +
+            "FROM invoices " +
+            "LEFT OUTER JOIN restaurants " +
+            "ON invoices.rid = restaurants.rid " +
+            "where invoices.userid =$1;";
 
     public List<PastOrdersInfo> getInvoices() throws Exception {
         Connection connection = PostgreSQLJDBC.getConnection();
         Statement statement = connection.createStatement();
 
-        ResultSet rs = statement.executeQuery(PASTORDERS_QUERY);
+        ResultSet rs = statement.executeQuery(PASTORDERS_QUERY_TEST);
        return parseResult(rs);
     }
 
@@ -55,5 +61,16 @@ public class PastOrdersImpl extends RemoteServiceServlet implements PastOrdersSe
         }
         rs.close();
         return pastOrderInfos;
+    }
+
+    @Override
+    public List<PastOrdersInfo> getInvoices(User user) throws Exception {
+        Connection connection = PostgreSQLJDBC.getConnection();
+        Statement statement = connection.createStatement();
+
+
+        ResultSet rs = statement.executeQuery(PASTORDERS_QUERY.replace("$1",Integer.toString(user.getUserId())));
+
+        return parseResult(rs);
     }
 }

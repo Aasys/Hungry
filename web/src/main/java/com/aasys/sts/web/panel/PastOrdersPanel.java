@@ -4,6 +4,7 @@ import com.aasys.sts.shared.query.PastOrdersInfo;
 import com.aasys.sts.shared.util.StringUtil;
 import com.aasys.sts.web.PastOrdersService;
 import com.aasys.sts.web.PastOrdersServiceAsync;
+import com.aasys.sts.web.SessionCache;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -38,15 +39,17 @@ public class PastOrdersPanel extends Composite {
     public PastOrdersPanel() {
         initWidget(uiBinder.createAndBindUi(this));
         populate();
-
+/*
         txtSearch.addKeyUpHandler(new KeyUpHandler() {
             @Override
             public void onKeyUp(KeyUpEvent keyUpEvent) {
                 if (keyUpEvent.getNativeKeyCode() == KeyCodes.KEY_ENTER || StringUtil.isEmptyOrNull(txtSearch.getText())) {
                     populate();
                 }
+
             }
         });
+       */
     }
 
     private void populate() {
@@ -67,7 +70,7 @@ public class PastOrdersPanel extends Composite {
 
         try {
             if (StringUtil.isEmptyOrNull(txtSearch.getText())) {
-                pastOrdersService.getInvoices(callback);
+                pastOrdersService.getInvoices(SessionCache.user, callback);
             } else {
                // pastOrdersService.getInvoices(txtSearch.getText(), callback);
             }
