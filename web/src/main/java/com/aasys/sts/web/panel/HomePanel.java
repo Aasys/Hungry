@@ -70,6 +70,7 @@ public class HomePanel extends Composite {
             @Override
             public void onClick(ClickEvent clickEvent) {
 
+                SessionCache.setToCanvas(new AccountPanel(SessionCache.getCurrentUser()), "Account");
             }
         });
 

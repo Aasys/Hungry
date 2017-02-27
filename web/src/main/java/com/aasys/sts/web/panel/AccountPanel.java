@@ -12,6 +12,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialRow;
+import gwt.material.design.client.ui.MaterialTextBox;
 
 import java.util.List;
 
@@ -29,35 +30,31 @@ public class AccountPanel extends Composite {
     @UiField
     MaterialRow mRow;
 
+    @UiField
+    MaterialTextBox UI_txtName;
+    @UiField
+    MaterialTextBox UI_txtAddress;
+    @UiField
+    MaterialTextBox UI_txtEmail;
+    @UiField
+    MaterialTextBox UI_txtPassword;
+    @UiField
+    MaterialTextBox UI_txtPhoneNum;
+
     private final User user;
 
     public AccountPanel(User _user) {
         user = _user;
         initWidget(uiBinder.createAndBindUi(this));
-        populate();
+        UI_txtAddress.setText(user.getAddress());
+        UI_txtEmail.setText(user.getEmail());
+        UI_txtName.setText(user.getName());
+        UI_txtPassword.setText("********");
+        UI_txtPhoneNum.setText(user.getPhonenum());
+        //populate();
     }
 
     private void populate() {
-        AsyncCallback<List<RatingsInfo>> callback = new AsyncCallback<List<RatingsInfo>>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onSuccess(List<RatingsInfo> ratingsInfos) {
-                mRow.clear();
-                for (RatingsInfo ri : ratingsInfos) {
-                    mRow.add(new RatingsCard(ri));
-                }
-            }
-        };
-
-        try {
-            //restaurantsService.getRatings(restaurantInfo.getRestaurant(), callback);
-        } catch (Exception e) {
-//            /e.printStackTrace();
-        }
     }
 
 }
