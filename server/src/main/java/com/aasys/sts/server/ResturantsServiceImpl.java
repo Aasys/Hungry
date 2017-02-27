@@ -75,7 +75,7 @@ public class ResturantsServiceImpl  extends RemoteServiceServlet implements Rest
             "ON ratings.rid = restaurants.rid " +
             "INNER JOIN users " +
             "ON ratings.userid = users.userid " +
-            "WHERE restaurants.rid = $1 ORDER BY DECIMAL DESC ;";
+            "WHERE restaurants.rid = $1 ORDER BY comdate DESC ;";
 
     @Override
     public List<RestaurantInfo> getRestaurants() throws Exception {
