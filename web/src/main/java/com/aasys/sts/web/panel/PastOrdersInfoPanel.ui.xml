@@ -15,12 +15,13 @@
 
     <m:MaterialCard type="basic" ui:field="resCard"  >
 
-        <m:link><m:MaterialLink ui:field="txtOrder" text="Order" /></m:link>
         <m:link>
             <g:HTMLPanel>
-                <m:MaterialLabel ui:="txtAmount" />
+                <m:MaterialLabel ui:field="txtOrder" />
                 <br/>
-                <m:MaterialLabel ui:filed="txtDate" />
+                <m:MaterialLabel ui:field="txtAmount" />
+                <br/>
+                <m:MaterialLabel ui:field="txtDate" />
                 <br/>
                 <m:MaterialLabel text="Thus us tgat" />
             </g:HTMLPanel>
