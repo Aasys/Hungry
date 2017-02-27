@@ -177,8 +177,15 @@ insert into Menus (menuid, name, description, price,rid) values (14,'Rolls','Sam
 insert into Menus (menuid, name, description, price,rid) values (15,'Burger','Hamburger with Fries',6,15);
 insert into Menus (menuid, name, description, price,rid) values (16,'Steak Burrito','Steak Burrito',6,2);
 insert into Menus (menuid, name, description, price,rid) values (17,'Extra Steak Bowl','Steak Bowl with Extra',6,2);
-insert into Menus (menuid, name, description, price,rid) values (18,'Chips','Fresh Chips',6,2);
-insert into Menus (menuid, name, description, price,rid) values (19,'Salad Bowel','Salad with Veggies',6,2);
+insert into Menus (menuid, name, description, price,rid) values (18,'Wrap','Burrito Warp',6,2);
+insert into Menus (menuid, name, description, price,rid) values (19,'Salad Bowel','Salad with Veggies',5,2);
+insert into Menus (menuid, name, description, price,rid) values (20,'Bowl','Steak Bowl',7,2);
+insert into Menus (menuid, name, description, price,rid) values (21,'Chicken','Chicken Bowl',6,2);
+insert into Menus (menuid, name, description, price,rid) values (22,'Chips','Chips and Salsa',2,2);
+insert into Menus (menuid, name, description, price,rid) values (23,'Sandwich','Pork Sandwich',6,5);
+insert into Menus (menuid, name, description, price,rid) values (24,'Rolls','Handmade rolls',6,5);
+insert into Menus (menuid, name, description, price,rid) values (25,'Rice','Rice Platter',6,5);
+
 
 
 --Ratings Data--
