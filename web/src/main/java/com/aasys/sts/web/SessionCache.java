@@ -33,4 +33,8 @@ public class SessionCache {
         UI_navBar = null;
     }
 
+    public static User getCurrentUser() {
+        return user;
+    }
+
 }

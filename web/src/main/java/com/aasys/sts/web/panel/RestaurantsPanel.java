@@ -63,6 +63,14 @@ public class RestaurantsPanel extends Composite {
             @Override
             public void onKeyUp(KeyUpEvent keyUpEvent) {
                 if (keyUpEvent.getNativeKeyCode() == KeyCodes.KEY_ENTER || StringUtil.isEmptyOrNull(txtSearch.getText())) {
+                    for (MaterialRadioButton r:cuisinesButton) {
+                        r.setChecked(false);
+                    }
+                    for (MaterialRadioButton r:tasteButton) {
+                        r.setChecked(false);
+                    }
+                    allRadio.setChecked(true);
+                    allRadioTaste.setChecked(true);
                     populate();
                 }
             }
