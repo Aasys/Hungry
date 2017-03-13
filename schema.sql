@@ -8,6 +8,8 @@ drop table IF EXISTS Menus CASCADE;
 drop table IF EXISTS MenusTaste CASCADE;
 drop table IF EXISTS Ratings CASCADE;
 drop table IF EXISTS Invoices CASCADE;
+drop table IF EXISTS Invoices_Paid_With CASCADE;
+drop table IF EXISTS Invoices_Order CASCADE;
 
 create table Users (
   userid integer primary key,
@@ -92,6 +94,29 @@ create table Invoices (
   foreign key (userid) references Users (userid),
   foreign key (rid) references Restaurants (rid)
 );
+
+CREATE TABLE Invoices_Order (
+  oid INTEGER PRIMARY KEY,
+  tid INTEGER,
+  description VARCHAR(2048),
+  userid INTEGER,
+  rid INTEGER,
+  foreign key (tid) references invoices (tid),
+  foreign key (userid) references Users (userid),
+  foreign key (rid) references Restaurants (rid)
+);
+
+
+CREATE TABLE Invoices_Paid_With (
+  pid INTEGER PRIMARY KEY,
+  tid INTEGER,
+  cardnum varchar(16),
+  amount integer not null,
+  foreign key (tid) references invoices (tid),
+  foreign key (cardnum) references Payments (cardnum)
+);
+
+INSERT INTO Invoices_Order (oid,tid,decription, userid, rid) VALUES (1,1, 'Regular Sandich and Drink',1, 1);
 
 --UsersData--
 INSERT INTO Users (userid, name, address, phonenum, email, passwd) VALUES (1, 'Drexel Joe', '1 Drexel Way ', '1234567890', 'joedrexel@drexel.net', 'default');
@@ -266,3 +291,37 @@ INSERT INTO restaurantcuisine (rid, name) VALUES (13, 'Italian');
 INSERT INTO restaurantcuisine (rid, name) VALUES (14, 'Indian');
 INSERT INTO restaurantcuisine (rid, name) VALUES (9, 'Thai');
 INSERT INTO restaurantcuisine (rid, name) VALUES (15, 'American');
+
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (1, 1, '12345678923', 12);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (2, 2, '51684651561', 15);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (3, 3, '54415641564', 10);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (4, 4, '51564651454', 14);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (5, 5, '51545153141', 13);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (6, 6, '35216515156', 28);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (7, 7, '21531565113', 25);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (8, 8, '45686451846', 5);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (9, 9, '45789158785', 7);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (10, 10, '75272525225', 9);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (11, 11, '12345678923', 21);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (12, 12, '12345678923', 25);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (13, 13, '12345678923', 14);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (14, 14, '12345678923', 10);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (15, 15, '12345678923', 7);
+INSERT INTO invoices_paid_with (pid, tid, cardnum, amount) VALUES (16, 16, '12345678923', 12);
+
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (1, 1, 'Regular Sandich and Drink', 1, 1);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (2, 2, 'Vanilla Shake', 2, 4);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (3, 3, 'BBQ Ribs', 3, 5);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (4, 4, 'Healthy Salad', 4, 6);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (5, 5, 'Chicken Fingers', 5, 7);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (6, 6, 'Friend Rice', 6, 8);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (7, 7, 'Ramen Bowl', 7, 9);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (8, 8, 'Cheese Pizza', 8, 10);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (9, 9, 'Big Mac', 9, 11);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (10, 10, 'Spaghetti with Meatballs', 10, 12);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (11, 11, 'BLT Sandwich', 1, 3);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (12, 12, 'Extra Steak Bowl', 1, 2);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (13, 13, 'Steak Burrito', 1, 2);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (14, 14, 'Veggie Bowl', 1, 2);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (15, 15, 'Chips', 1, 2);
+INSERT INTO invoices_order (oid, tid, description, userid, rid) VALUES (16, 16, 'Salad Bowel', 1, 2);
