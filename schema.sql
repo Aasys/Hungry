@@ -116,7 +116,6 @@ CREATE TABLE Invoices_Paid_With (
   foreign key (cardnum) references Payments (cardnum)
 );
 
-INSERT INTO Invoices_Order (oid,tid,decription, userid, rid) VALUES (1,1, 'Regular Sandich and Drink',1, 1);
 
 --UsersData--
 INSERT INTO Users (userid, name, address, phonenum, email, passwd) VALUES (1, 'Drexel Joe', '1 Drexel Way ', '1234567890', 'joedrexel@drexel.net', 'default');
